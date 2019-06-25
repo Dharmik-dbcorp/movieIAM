@@ -130,7 +130,7 @@ async function deleteMovieByName(req, res, next){
         if (req.user.role === 'Admin')
         {
             let result = await movieService.deleteMovieByName(req.params.moviename)
-            if(result.ok) return res.status(200).json({message: 'Movie deleted succesfully'}) 
+            if(result) return res.status(200).json({message: 'Movie deleted succesfully'}) 
             return res.status(403).json({ message: 'Cant find movie with this name' })
                
         }
