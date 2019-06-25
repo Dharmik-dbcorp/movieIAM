@@ -92,7 +92,7 @@ async function updateMovie(req, res, next){
 
                 if(updated) return res.status(200).json({message : 'Movie successfully updated'});
             }
-            return res.status(204).send('Movie not found with this name')
+            return res.status(403).send('Movie not found with this name')
         }
 
         let role = await roleService.findRole(req.user.role);
@@ -110,7 +110,7 @@ async function updateMovie(req, res, next){
 
                     if(updated) return res.status(200).json({message : 'Movie successfully updated'});
                 }
-                return res.status(204).send('Movie not found with this name')
+                return res.status(403).send('Movie not found with this name')
             }
            
         }
