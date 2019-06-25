@@ -22,7 +22,7 @@ async function getAllMovies(){
 
 async function deleteMovieByName(name){
 
-    return await Movie.where({ name: name }).updateMany({ $set: {isDeleted : true }}, function (err, result) {
+    return await Movie.where({ name: name }).findOneAndUpdate({ $set: {isDeleted : true }}, function (err, result) {
         if (err) return err;
         
         return result;
